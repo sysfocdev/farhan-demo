@@ -15,7 +15,15 @@ import Link from "next/link";
 import { UserType } from "@/lib/types";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
-export function Profile({ user }: { user: UserType }) {
+// later user will  pass as a prop
+export function Profile() {
+  const user: UserType = {
+    name: "Farhan",
+    phone: "0348270147",
+    email: "farhan@gmail.com",
+    profileImg: "",
+    role: "user",
+  };
   const [open, setOpen] = useState(false);
   // const isUser = user?.role === "user";
 
