@@ -1,7 +1,14 @@
 import { Profile } from "@/components/profile";
 import Logo from "./logo";
+import { UserType } from "@/lib/types";
 
-const Navbar = () => {
+const Navbar = async ({ user }: { user: UserType }) => {
+  let userInfo;
+  if (user) {
+    userInfo = JSON.parse(JSON.stringify(user));
+  } else {
+    userInfo = "";
+  }
   return (
     <div className=" px-10 border-b h-full items-center flex justify-between bg-white shadow-sm z-50 ">
       <div className="flex items-center gap-x-3">
@@ -12,7 +19,7 @@ const Navbar = () => {
         </div>
       </div>
       <div>
-        <Profile />
+        <Profile user={userInfo} />
       </div>
     </div>
   );

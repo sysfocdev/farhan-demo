@@ -159,6 +159,7 @@ const adminExtraRoutes = [
 ];
 
 const SidebarRoutes = ({ role }: { role: "admin" | "user" }) => {
+  console.log("user role:", role);
   const routes = useMemo(() => {
     if (role === "admin") {
       const newRoutes = [...commonRoutes];
