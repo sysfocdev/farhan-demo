@@ -10,20 +10,15 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import ProfilePicture from "./profilePicture";
-import { useState } from "react";
+import { useActionState, useState } from "react";
 import Link from "next/link";
 import { UserType } from "@/lib/types";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import { logout } from "@/actions/auth.action";
 
 // later user will  pass as a prop
-export function Profile() {
-  const user: UserType = {
-    name: "Farhan",
-    phone: "0348270147",
-    email: "farhan@gmail.com",
-    profileImg: "",
-    role: "user",
-  };
+export function Profile({ user }: { user?: UserType }) {
+  const [state, action, pending] = useActionState(logout, undefined);
   const [open, setOpen] = useState(false);
   // const isUser = user?.role === "user";
 
@@ -82,8 +77,12 @@ export function Profile() {
             </DropdownMenuItem>
           ))}
         <DropdownMenuSeparator />
-        <form onSubmit={() => setOpen(false)} className="p-1">
-          <Button type="submit" className="w-full cursor-pointer font-bold">
+        <form action={action} onSubmit={() => setOpen(false)} className="p-1">
+          <Button
+            disabled={pending}
+            type="submit"
+            className="w-full cursor-pointer font-bold"
+          >
             Logout
           </Button>
         </form>
