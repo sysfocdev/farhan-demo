@@ -57,9 +57,9 @@ const cards: {
 
 export default function Dashboard() {
   return (
-    <div className="flex relative top-[80px]   h-full bg-slate-100 p-5">
-      <div className="absolute  w-[97%] h-full rounded-md bg-white">
-        <div className="flex md:items-center md:justify-between ">
+    <div className="flex relative top-[80px] h-screen  p-5 overflow-hidden">
+      <div className="m-6 w-full h-[90%] rounded-md bg-white overflow-y-auto p-4">
+        <div className="flex md:items-center md:justify-between flex-col md:flex-row">
           <div className="left p-5">
             <div className="flex gap-x-2 items-center">
               <div className="rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-700 dark:to-purple-700 ">
