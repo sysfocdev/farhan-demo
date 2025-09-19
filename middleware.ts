@@ -7,8 +7,6 @@ export function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 
-console.log("middleware");
-
 export const config = {
   matcher: ["/login", "/signup", "/admin/(.*)"],
 };
