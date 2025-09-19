@@ -3,8 +3,9 @@ import { Separator } from "@/components/ui/separator";
 import SidebarRoutes from "./sidebar-routes";
 import { UserType } from "@/lib/types";
 
-const Sidebar = ({ user }: { user: UserType }) => {
+const Sidebar = ({ user }: { user?: UserType }) => {
   console.log("sidebar role:", user);
+
   return (
     <div className="h-screen  flex flex-col bg-white  pt-8 ">
       <div className="flex flex-col w-full items-center h-full">
@@ -15,7 +16,7 @@ const Sidebar = ({ user }: { user: UserType }) => {
         <Separator />
 
         <div className="h-[80%] w-full overflow-auto">
-          <SidebarRoutes role={user?.role} />
+          <SidebarRoutes role={user?.role ?? "user"} />
         </div>
         <Separator />
 

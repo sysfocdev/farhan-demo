@@ -9,10 +9,11 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Sidebar from "./sidebar";
-export const MobileSidebar = () => {
+import { UserType } from "@/lib/types";
+export const MobileSidebar = ({ user }: { user?: UserType }) => {
   return (
     <Sheet>
-      <SheetTrigger className="md:hidden pr-4 hover:opacity-75 cursor-pointer">
+      <SheetTrigger className="md:hidden pr-4 hover:opacity-75 cursor-pointer ">
         <Menu />
       </SheetTrigger>
       <SheetHeader>
@@ -21,9 +22,9 @@ export const MobileSidebar = () => {
 
       <SheetContent
         side="left"
-        className="p-0 bg-white flex justify-center items-center"
+        className="p-0 z-[999999] bg-white flex justify-center items-center"
       >
-        <Sidebar />
+        <Sidebar user={user} />
       </SheetContent>
     </Sheet>
   );

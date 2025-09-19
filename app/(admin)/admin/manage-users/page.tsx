@@ -26,7 +26,7 @@ export default async function ManageUsers({
   const totalPages = Math.ceil(total / 10);
 
   return (
-    <div className="flex relative top-[80px] h-screen p-5 overflow-auto">
+    <div className="flex relative top-[80px] h-full w-[60%]  p-5 overflow-auto">
       <div>{error}</div>
       {error && <ErrorToast message={error} />}
       <div className="m-6 w-full h-[80%] rounded-md bg-white overflow-y-auto p-4">
